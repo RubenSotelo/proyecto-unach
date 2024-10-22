@@ -11,7 +11,7 @@ async function list(req, res) {
 }
 
 async function seleccionar(req, res) {
-    try {
+    try {   
         const reservacion = await Reservacion.findOne({where: req.body.id_reservacion});
         return reservacion == null? res.json({error:"ID no identificado"}): res.json({reservacion});
     } catch (error) {

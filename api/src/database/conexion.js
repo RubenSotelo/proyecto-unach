@@ -1,17 +1,17 @@
-const {Sequelize} = require("Sequelize"); //importacion de libreria para el uso de las Herramientas ORM
+const {Sequelize} = require("Sequelize"); 
 const env = require("../config");
 
-const config = { //Importamos nuestas varibles de entorno como valores para para conexion a la base de datos
+const config = { 
   database: env.development.database,
   username: env.development.username,
   password: env.development.password,
   host: env.development.host,
-  dialect: "postgres", // definimos que tipo de gestor de base de datos vamos a tener la conexion
+  dialect: "postgres", 
 };
 
-const sequelize = new Sequelize(config);// creamos la conexion a la base de datos 
+const sequelize = new Sequelize(config); 
 
-sequelize.authenticate() //evaliamos si la comunicacion con la base detos a sido establesida correctamente 
+sequelize.authenticate()  
   .then(() => {
     console.log("Conectado a la base de datos ");
   })
@@ -19,4 +19,4 @@ sequelize.authenticate() //evaliamos si la comunicacion con la base detos a sido
     console.log("No se conecto");
   });
 
-module.exports = { sq: sequelize }; //exportamos nuesta conexion 
+module.exports = { sq: sequelize }; 
